@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
+import { Link } from '../router'
 export default (props) => {
     useEffect(() => {
-        setTimeout(() => {
-            const { history } = props;
-            console.log(history);
-            history.push('/user');
-        }, 3000)
     })
     return (
-        <div>Home</div>
+        <div>
+            <p>Home</p>
+            <Link to="/user">toUser</Link>
+        </div>
     )
 }

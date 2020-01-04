@@ -26,7 +26,15 @@ module.exports = {
                         ],
                         require.resolve('@babel/preset-react')
                     ],
-                    plugins: ['@babel/plugin-proposal-class-properties']
+                    plugins: [
+                        [
+                            '@babel/plugin-proposal-decorators',
+                            {
+                                legacy: true
+                            }
+                        ],
+                        '@babel/plugin-proposal-class-properties'
+                    ]
                 }
             }
         ]

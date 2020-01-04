@@ -42,7 +42,6 @@ export default function (props) {
                 globalHistory.pushState(null, null, to);
                 window.onpushstate(null, to);
             }
-            console.log(window.location.history);
         },
         block(prompt) {
             history.prompt = prompt;

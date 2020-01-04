@@ -1,0 +1,1 @@
+function e(e,t){let r=t,s=[],c=t=>(r=e(r,t),s.forEach(e=>e()),t),n={dispatch:c,getState:()=>r,subscribe:e=>{s.push(e);return{unsubscribe:()=>{const t=s.indexOf(e);s.splice(t,1)}}}};return c({type:"@@REDUX_INIT"}),n}export{e as createStore};

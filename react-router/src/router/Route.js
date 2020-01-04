@@ -13,7 +13,8 @@ class Route extends React.Component {
         let { path = '/', component: RouteComponent, exact = false } = this.props
         path = typeof path === 'string' ? path : path.pathname;
         // 根据props中的path生成正则
-        let regexp = pathToRegexp(path, [], { end: true });
+        let params = [];
+        let regexp = pathToRegexp(path, params, { end: true });
         let pathname = this.context.location.pathname;
         let result = pathname.match(regexp);
         let routeProps = {
