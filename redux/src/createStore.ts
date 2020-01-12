@@ -1,14 +1,19 @@
-import { Reducer, Action, Store } from './types';
+import { Reducer, AnyAction, Store, Dispatch } from './types';
+/**
+ * createStore创建store store下挂载dispatch getState subscribe三个方法
+ * @param reducer 
+ * @param initialState 
+ */
 export default function createStore(
   reducer: Reducer,
-  initialState: any
+  initialState?: any
 ): Store {
   // 初始状态
   let state: any = initialState;
   // 订阅函数
   let listeners: Array<Function> = [];
   // 分发函数
-  let dispatch = (action: Action): Action => {
+  let dispatch:Dispatch = (action: AnyAction): AnyAction => {
     state = reducer(state, action);
     // 执行所有订阅的监听函数
     listeners.forEach(listener => listener());
@@ -21,11 +26,11 @@ export default function createStore(
   // 订阅器
   let subscribe = (listener: Function) => {
     listeners.push(listener);
-    let unsubscribe = () => {
+    let unsubscribe = ():void => {
         const index = listeners.indexOf(listener);
         listeners.splice(index, 1);
     };
-    return { unsubscribe };
+    return unsubscribe;
   };
   let store: Store = {
     dispatch,

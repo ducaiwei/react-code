@@ -9,7 +9,7 @@ interface CounterState {
 }
 interface Unsubscribe {
     (): void
-  }
+}
 interface Store {
     dispatch: (action:Action) => Action,
     getState: () => any,
@@ -17,6 +17,8 @@ interface Store {
 }
 const ADD:string = 'ADD';
 const MINUS:string = 'MINUS';
+const ADD1:string = 'ADD1';
+const MINUS1:string = 'MINUS1';
 export {
     Action,
     AnyAction,
@@ -24,5 +26,7 @@ export {
     ADD,
     MINUS,
     Store,
-    Unsubscribe
+    Unsubscribe,
+    ADD1,
+    MINUS1
 }
