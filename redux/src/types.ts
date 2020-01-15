@@ -28,6 +28,13 @@ interface ActionCreatorsMapObject<Any> {
 type ReducersMapObject<S = any, A = AnyAction> = {
   [K in keyof S]: Reducer<S[K], A>;
 };
+type Compose = {
+  (...args: Array<Function>): Function
+}
+type MiddlewareApi = {
+  getState: Function,
+  dispatch: Dispatch
+}
 export {
   Action,
   AnyAction,
@@ -36,5 +43,8 @@ export {
   ActionCreator,
   ActionCreatorsMapObject,
   Dispatch,
-  ReducersMapObject
+  ReducersMapObject,
+  Compose,
+  Unsubscribe,
+  MiddlewareApi
 };

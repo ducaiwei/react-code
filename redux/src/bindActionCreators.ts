@@ -1,5 +1,5 @@
 /**
- * 把多个action合并成一个actionCreators,不用手动dispatch action
+ * 把多个action合并成一个actionCreators
  */
 import { ActionCreator, ActionCreatorsMapObject, Dispatch } from './types';
 const bindActionCreator = function(

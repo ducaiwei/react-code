@@ -1,32 +1,41 @@
-interface Action<T=any> {
-    type: T
+interface Action<T = any> {
+  type: T;
 }
 interface AnyAction extends Action {
-    [extraProps: string]: any
+  [extraProps: string]: any;
 }
 interface CounterState {
-    num:number
+  num: number;
 }
 interface Unsubscribe {
-    (): void
+  (): void;
 }
 interface Store {
-    dispatch: (action:Action) => Action,
-    getState: () => any,
-    subscribe: (observer: Function) => Unsubscribe
+  dispatch: (action: Action) => Action;
+  getState: () => any;
+  subscribe: (observer: Function) => Unsubscribe;
 }
-const ADD:string = 'ADD';
-const MINUS:string = 'MINUS';
-const ADD1:string = 'ADD1';
-const MINUS1:string = 'MINUS1';
+interface Dispatch<A = AnyAction> {
+  (action: A, ...extraArgs: any[]): A;
+}
+type MiddlewareApi = {
+    getState: Function,
+    dispatch: Dispatch
+}
+const ADD: string = 'ADD';
+const MINUS: string = 'MINUS';
+const ADD1: string = 'ADD1';
+const MINUS1: string = 'MINUS1';
 export {
-    Action,
-    AnyAction,
-    CounterState,
-    ADD,
-    MINUS,
-    Store,
-    Unsubscribe,
-    ADD1,
-    MINUS1
-}
+  Action,
+  AnyAction,
+  CounterState,
+  ADD,
+  MINUS,
+  Store,
+  Unsubscribe,
+  ADD1,
+  MINUS1,
+  Dispatch,
+  MiddlewareApi
+};
